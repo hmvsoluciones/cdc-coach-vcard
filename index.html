@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cecilia del Castillo - Coach</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <!-- Para iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="RegalaMomentos">
+    <meta name="theme-color" content="#FF007F">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="card">
+        <img src="assets/logo.jpg" alt="RegalaMomentos Logo" class="logo">        
+        <p class="slogan"><b>Coach Ejecutivo y de Vida</b></p>
+        
+        <div class="contact-info">
+            <p><i class="icon-globe-custom"></i> <a href="https://cdc-coach.com.com" target="_blank">cdc-coach.com.com</a></p>
+            <p><i class="icon-whatsapp" style="color: greenyellow;"></i> <a href="https://wa.me/5215554122206?text=Hola, deseo información de sus servicios" target="_blank">5549 767417</a></p>
+            <p><i class="icon-email"></i> <a href="mailto:ceci@cdc-coach.com.com">ceci@cdc-coach.com.com</a></p>
+        </div>
+        
+        <div class="social-media">
+            <a href="https://instagram.com/" target="_blank" class="icon-instagram"></a>
+            <a href="https://facebook.com/" target="_blank" class="icon-facebook"></a>
+            <a href="https://tiktok.com/" target="_blank" class="icon-tiktok"></a>
+        </div>
+        
+        <div class="services">
+            <h2>Servicios</h2>
+            <ul>
+                <li>Coaching Ejecutivo</li>
+                <li>Coaching de vida</li>
+                <li>Coaching de equipos</li>
+            </ul>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn" onclick="compartir()">Compartir</button>
+        </div>
+        <div class="share-options" id="shareOptions">
+            <a href="#" onclick="compartirEnRedSocial('facebook')" class="icon-facebook"></a>
+            <a href="#" onclick="compartirEnRedSocial('linkedin')" class="icon-linkedin"></a>
+            <a href="#" onclick="compartirEnRedSocial('whatsapp')" class="icon-whatsapp"></a>
+            <a href="#" onclick="compartirEnRedSocial('twitter')" class="icon-twitter"></a>
+            <a href="#" onclick="compartirEnRedSocial('pinterest')" class="icon-pinterest"></a>
+            <a href="#" onclick="compartirPorCorreo()" class="icon-email"></a>
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="mostrarQR()">Mostrar QR</button>
+        </div>
+        <div class="container">
+            <div id="qrcode" class="qr-code"></div>
+        </div>
+        <div class="buttons">
+            <button class="btn" onclick="guardarContacto()">Guardar Contacto</button>
+        </div>
+        <div class="buttons">
+            <button style="display: none;" class="btn" id="installBtn">Instalar App</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Instalacion de PWA
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            // Muestra el botón de instalación
+            document.getElementById('installBtn').style.display = 'block';
+        });
+
+        document.getElementById('installBtn').addEventListener('click', (e) => {
+        // Oculta el botón de instalación
+        document.getElementById('installBtn').style.display = 'none';
+        // Muestra el prompt de instalación
+        deferredPrompt.prompt();
+        // Espera a que el usuario responda al prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('Usuario aceptó la instalación');
+            } else {
+                console.log('Usuario rechazó la instalación');
+            }
+            deferredPrompt = null;
+        });
+    });
+    </script>
+</body>
+</html>
