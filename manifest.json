@@ -1,21 +1,21 @@
 {
-    "name": "RegalaMomentos Tarjeta Digital",
-    "short_name": "RegalaMomentos",
-    "description": "Tarjeta de presentación digital de RegalaMomentos",
-    "start_url": "/vcard/index.html",
+    "name": "Coach Cecilia del Castillo",
+    "short_name": "CDC",
+    "description": "Tarjeta de presentación digital de CDC",
+    "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#FF007F",
-    "theme_color": "#FF007F",
+    "background_color": "#00C7F5",
+    "theme_color": "#00C7F5",
     "orientation": "portrait",
     "icons": [
         {
-            "src": "assets/logo-192x192.png",
+            "src": "assets/logo-192x192.jpg",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "assets/logo-512x512.png",
+            "src": "assets/logo-512x512.jpg",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
